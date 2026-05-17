@@ -2,6 +2,8 @@
 
 A responsive task management app built as part of the Licious frontend interview assignment.
 
+Project live link: [ https://licious-task-management.vercel.app/](url)
+
 ## Setup
 
 **Requirements:** Node 20+
