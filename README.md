@@ -70,5 +70,5 @@ Clicking delete opens a confirmation dialog. On confirm: the dialog fades out (2
 ### Component structure — feature-first folders
 Code is organised by feature (`features/tasks/`) rather than by type (`components/`, `hooks/`). Shared UI primitives live in `components/ui/` (shadcn-generated) and shared layout components in `shared/components/`. This keeps each feature self-contained and easy to locate.
 
-### No persistence
-Task data is held in Zustand memory only — intentionally, as the assignment did not require a backend or localStorage. Adding persistence would be a one-line change (`zustand/middleware` `persist` wrapper).
+### Persistence — Zustand `persist` middleware with localStorage
+Tasks are persisted to `localStorage` via Zustand's built-in `persist` middleware. Data survives page refreshes and browser restarts with no additional setup. localStorage was chosen over IndexedDB for simplicity — the task payload is small and serialises to JSON trivially.
