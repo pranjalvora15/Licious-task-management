@@ -87,6 +87,8 @@ Tasks are persisted to `localStorage` via Zustand's built-in `persist` middlewar
 
 
 # Add Task View
+<img width="1290" height="897" alt="image" src="https://github.com/user-attachments/assets/c81bc38f-7997-4177-b257-086e5c65d7c1" />
+
 
 # Edit Task View
 <img width="1338" height="871" alt="image" src="https://github.com/user-attachments/assets/aca063d4-1c1d-4c5e-a152-e1019e68018b" />
@@ -110,9 +112,9 @@ Tasks are persisted to `localStorage` via Zustand's built-in `persist` middlewar
 <img width="1398" height="903" alt="image" src="https://github.com/user-attachments/assets/a4460850-234f-427b-a66b-595a4490856b" />
 
 # Mobile View
-<img width="481" height="827" alt="image" src="https://github.com/user-attachments/assets/8532f526-e0cf-4c1e-b723-0df8ba6558f4" />
+<img width="437" height="808" alt="image" src="https://github.com/user-attachments/assets/bd78c3a3-17b2-4688-8249-620d23a2f2df" />
 
-<img width="436" height="812" alt="image" src="https://github.com/user-attachments/assets/5bd0c7b0-165a-4f45-9816-9ec01cdd6e46" />
+<img width="439" height="806" alt="image" src="https://github.com/user-attachments/assets/8475f3ca-866a-44bb-b1a2-0e0abaf3c759" />
 
 <img width="510" height="826" alt="image" src="https://github.com/user-attachments/assets/1d12e154-8401-47ca-b589-ce33a1c11ffe" />
 
