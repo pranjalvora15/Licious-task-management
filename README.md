@@ -74,44 +74,44 @@ Code is organised by feature (`features/tasks/`) rather than by type (`component
 Tasks are persisted to `localStorage` via Zustand's built-in `persist` middleware. Data survives page refreshes and browser restarts with no additional setup. localStorage was chosen over IndexedDB for simplicity — the task payload is small and serialises to JSON trivially.
 
 
-### Screenshots
+## Screenshots
 
-# List view
+### List view
 <img width="1426" height="856" alt="image" src="https://github.com/user-attachments/assets/145e8244-f584-4d20-9788-ac54467fe0d3" />
 
-# Card view with task completed
+### Card view with task completed
 <img width="1503" height="909" alt="image" src="https://github.com/user-attachments/assets/8d77f513-e9fe-4672-a961-65405ada7667" />
 
-# Detailed Task View Modal
+### Detailed Task View Modal
 <img width="1414" height="855" alt="image" src="https://github.com/user-attachments/assets/fd1ae132-936b-450e-8fce-cf243290d519" />
 
 
-# Add Task View
+### Add Task View
 <img width="1290" height="897" alt="image" src="https://github.com/user-attachments/assets/c81bc38f-7997-4177-b257-086e5c65d7c1" />
 
 
-# Edit Task View
+### Edit Task View
 <img width="1338" height="871" alt="image" src="https://github.com/user-attachments/assets/aca063d4-1c1d-4c5e-a152-e1019e68018b" />
 
 
-# Searching Task
+### Searching Task
 <img width="1346" height="875" alt="image" src="https://github.com/user-attachments/assets/61f67268-c769-4475-aa4f-75331fc345e3" />
 
 
-# Filter (dark mode)
+### Filter (dark mode)
 <img width="1343" height="887" alt="image" src="https://github.com/user-attachments/assets/303d8467-ee02-45e3-8864-832d9fea11e9" />
 
-# Delete View
+### Delete View
 <img width="1355" height="887" alt="image" src="https://github.com/user-attachments/assets/92324684-7369-4489-ad6b-212d6e25ac6a" />
 
 
-# Error Handling while Adding Task
+### Error Handling while Adding Task
 <img width="1360" height="890" alt="image" src="https://github.com/user-attachments/assets/e73584e1-9fa9-4167-904d-c744e7c37ac0" />
 
-# Sorting View
+### Sorting View
 <img width="1398" height="903" alt="image" src="https://github.com/user-attachments/assets/a4460850-234f-427b-a66b-595a4490856b" />
 
-# Mobile View
+### Mobile View
 <img width="437" height="808" alt="image" src="https://github.com/user-attachments/assets/bd78c3a3-17b2-4688-8249-620d23a2f2df" />
 
 <img width="439" height="806" alt="image" src="https://github.com/user-attachments/assets/8475f3ca-866a-44bb-b1a2-0e0abaf3c759" />
@@ -121,7 +121,7 @@ Tasks are persisted to `localStorage` via Zustand's built-in `persist` middlewar
 <img width="437" height="815" alt="image" src="https://github.com/user-attachments/assets/15a8451a-eded-4a94-95ca-c421558cf888" />
 
 
-# Tablet View
+### Tablet View
 <img width="1000" height="814" alt="image" src="https://github.com/user-attachments/assets/fa115e73-c449-4270-995c-ed54892d32c8" />
 
 <img width="1020" height="821" alt="image" src="https://github.com/user-attachments/assets/41eeef80-6daf-4e76-9a61-6664b066eb7e" />
