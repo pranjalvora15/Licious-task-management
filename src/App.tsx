@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Plus } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Header } from '@/shared/components/Header'
@@ -28,11 +28,27 @@ export default function App() {
   const viewMode = useUIStore((state) => state.viewMode)
   const deleteTask = useTaskStore((state) => state.deleteTask)
 
+  const [rawSearch, setRawSearch] = useState('')
+  const [isSearching, setIsSearching] = useState(false)
   const [filters, setFilters] = useState<FilterState>(defaultFilters)
   const [modal, setModal] = useState<ModalState>({ open: false, mode: 'create' })
   const [deleteId, setDeleteId] = useState<string | null>(null)
   const [deletingId, setDeletingId] = useState<string | null>(null)
   const [detailTask, setDetailTask] = useState<Task | null>(null)
+
+  useEffect(() => {
+    if (rawSearch === '') {
+      setIsSearching(false)
+      setFilters((f) => ({ ...f, search: '' }))
+      return
+    }
+    setIsSearching(true)
+    const id = setTimeout(() => {
+      setFilters((f) => ({ ...f, search: rawSearch }))
+      setIsSearching(false)
+    }, 400)
+    return () => clearTimeout(id)
+  }, [rawSearch])
 
   const filteredTasks = useFilteredTasks(filters)
 
@@ -69,16 +85,24 @@ export default function App() {
               </Button>
             </div>
 
-            <SearchFilter filters={filters} onChange={setFilters} />
-
-            <TaskList
-              tasks={filteredTasks}
-              viewMode={viewMode}
-              deletingId={deletingId}
-              onEdit={openEdit}
-              onDelete={setDeleteId}
-              onView={openDetail}
+            <SearchFilter
+              filters={filters}
+              searchInput={rawSearch}
+              isSearching={isSearching}
+              onSearchChange={setRawSearch}
+              onChange={(f) => setFilters((prev) => ({ ...prev, status: f.status, priority: f.priority }))}
             />
+
+            <div className={isSearching ? 'opacity-50 transition-opacity duration-200' : 'transition-opacity duration-200'}>
+              <TaskList
+                tasks={filteredTasks}
+                viewMode={viewMode}
+                deletingId={deletingId}
+                onEdit={openEdit}
+                onDelete={setDeleteId}
+                onView={openDetail}
+              />
+            </div>
           </div>
         </div>
       </main>

@@ -52,22 +52,20 @@ export function TaskListItem({ task, isDeleting, onEdit, onDelete, onView }: Tas
         {...attributes}
         {...listeners}
         onClick={(e) => e.stopPropagation()}
-        className="mt-0.5 hidden shrink-0 cursor-grab touch-none text-muted-foreground transition-opacity lg:flex lg:opacity-0 lg:group-hover:opacity-100 active:cursor-grabbing"
+        className="mt-0.5 flex shrink-0 cursor-grab touch-none text-muted-foreground transition-opacity opacity-30 lg:opacity-0 lg:group-hover:opacity-100 active:cursor-grabbing"
         aria-label="Drag to reorder"
       >
-        <GripVertical className="h-4 w-4" />
+        <GripVertical className="h-3.5 w-3.5 lg:h-4 lg:w-4" />
       </button>
-
-      {/* Checkbox */}
-      <div className="mt-0.5 shrink-0" onClick={(e) => e.stopPropagation()}>
-        <Checkbox checked={completed} onCheckedChange={() => toggleStatus(task.id)} />
-      </div>
 
       {/* Content */}
       <div className="min-w-0 flex-1">
 
-        {/* Row 1: title + badge + (desktop) date + actions */}
+        {/* Row 1: checkbox + title + badge + (desktop) date + actions */}
         <div className="flex items-center gap-2">
+          <div className="shrink-0" onClick={(e) => e.stopPropagation()}>
+            <Checkbox checked={completed} onCheckedChange={() => toggleStatus(task.id)} />
+          </div>
           <p className={cn('flex-1 truncate font-medium', completed && 'line-through text-muted-foreground')}>
             {task.title}
           </p>

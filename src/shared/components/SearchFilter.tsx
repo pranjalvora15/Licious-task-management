@@ -1,4 +1,5 @@
-import { Search, X } from 'lucide-react'
+import { Search, X, Loader2 } from 'lucide-react'
+import { cn } from '@/lib/utils'
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
@@ -6,23 +7,32 @@ import type { FilterState } from '@/features/tasks/types'
 
 interface SearchFilterProps {
   filters: FilterState
+  searchInput: string
+  isSearching: boolean
+  onSearchChange: (value: string) => void
   onChange: (filters: FilterState) => void
 }
 
-export function SearchFilter({ filters, onChange }: SearchFilterProps) {
+export function SearchFilter({ filters, searchInput, isSearching, onSearchChange, onChange }: SearchFilterProps) {
   const hasActiveFilters =
-    filters.search !== '' || filters.status !== 'all' || filters.priority !== 'all'
+    searchInput !== '' || filters.status !== 'all' || filters.priority !== 'all'
 
-  const reset = () => onChange({ search: '', status: 'all', priority: 'all' })
+  const reset = () => {
+    onSearchChange('')
+    onChange({ search: '', status: 'all', priority: 'all' })
+  }
 
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
       <div className="relative flex-1">
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+        <span className="absolute left-3 top-1/2 -translate-y-1/2">
+          <Search className={cn('h-3.5 w-3.5 sm:h-4 sm:w-4 text-muted-foreground transition-opacity duration-150', isSearching ? 'opacity-0' : 'opacity-100')} />
+          <Loader2 style={{ animationDuration: '1.5s' }} className={cn('absolute inset-0 h-3.5 w-3.5 sm:h-4 sm:w-4 animate-spin text-muted-foreground transition-opacity duration-150', isSearching ? 'opacity-100' : 'opacity-0')} />
+        </span>
         <Input
           placeholder="Search tasks..."
-          value={filters.search}
-          onChange={(e) => onChange({ ...filters, search: e.target.value })}
+          value={searchInput}
+          onChange={(e) => onSearchChange(e.target.value)}
           className="pl-9"
         />
       </div>
